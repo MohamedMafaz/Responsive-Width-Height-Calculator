@@ -13,13 +13,27 @@
         // Calculate and display the percentage value based on the input
         if (dimension === "width") {
           var percentage = (size / 1272) * 100;
-          document.getElementById("result").innerHTML = "The percentage value is: " + percentage + "%";
+          document.getElementById("result").innerHTML = "The percentage value is: " + percentage.toFixed(2) + "%";
         } else if (dimension === "height") {
           var percentage = (size / 1565) * 100;
-          document.getElementById("result").innerHTML = "The percentage value is: " + percentage + "%";
+          document.getElementById("result").innerHTML = "The percentage value is: " + percentage.toFixed(2) + "%";
         } else {
           document.getElementById("result").innerHTML = "Invalid input!";
         }
+
+        // Set the value of the hidden input field to the calculated percentage value
+        document.getElementById("percentage").value = percentage.toFixed(2);
+      }
+
+      function copyPercentage() {
+        // Get the value of the hidden input field
+        var percentage = document.getElementById("percentage").value;
+
+        // Append the percent symbol to the value
+        var valueWithSymbol = percentage + "%";
+
+        // Copy the value to the clipboard
+        navigator.clipboard.writeText(valueWithSymbol);
       }
     </script>
   </head>
@@ -39,6 +53,11 @@
       <br>
 
       <button type="button" onclick="calculateSize()">Calculate</button>
+
+      <br>
+
+      <input type="hidden" id="percentage">
+      <button type="button" onclick="copyPercentage()">Copy</button>
     </form>
 
     <p id="result"></p>
