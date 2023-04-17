@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Element Size Calculator</title>
+    <script>
+      function calculateSize() {
+        // Get the selected dimension from the form
+        var dimension = document.getElementById("dimension").value;
+
+        // Get the element width or height from the form
+        var size = document.getElementById("size").value;
+
+        // Calculate and display the percentage value based on the input
+        if (dimension === "width") {
+          var percentage = (size / 1272) * 100;
+          document.getElementById("result").innerHTML = "The percentage value is: " + percentage + "%";
+        } else if (dimension === "height") {
+          var percentage = (size / 1565) * 100;
+          document.getElementById("result").innerHTML = "The percentage value is: " + percentage + "%";
+        } else {
+          document.getElementById("result").innerHTML = "Invalid input!";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      <label for="dimension">Width or Height:</label>
+      <select id="dimension" name="dimension">
+        <option value="width">Width</option>
+        <option value="height">Height</option>
+      </select>
+
+      <br>
+
+      <label for="size">Enter your element size:</label>
+      <input type="number" id="size" name="size">
+
+      <br>
+
+      <button type="button" onclick="calculateSize()">Calculate</button>
+    </form>
+
+    <p id="result"></p>
+  </body>
+</html>
