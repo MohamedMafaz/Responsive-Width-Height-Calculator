@@ -11,12 +11,12 @@
         // Get the element width or height from the form
         var size = document.getElementById("size").value;
 
-        // Calculate and display the percentage value based on the input
+        // Calculate and displaythe percentage value based on the input
         if (dimension === "width") {
-          var percentage = (size / 1272) * 100;
+          var percentage = (size / 1440) * 100;
           document.getElementById("result").innerHTML = "The percentage value is: " + percentage.toFixed(2) + "%";
         } else if (dimension === "height") {
-          var percentage = (size / 1565) * 100;
+          var percentage = (size / 3347) * 100;
           document.getElementById("result").innerHTML = "The percentage value is: " + percentage.toFixed(2) + "%";
         } else {
           document.getElementById("result").innerHTML = "Invalid input!";
